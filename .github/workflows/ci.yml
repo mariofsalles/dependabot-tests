@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Node.js 24 / testes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Obter codigo
+        uses: actions/checkout@v6
+      - name: Configurar Node.js LTS
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Instalar dependencias sem scripts de pacotes
+        run: npm ci --ignore-scripts
+      - name: Executar testes
+        run: npm test
+      - name: Conferir formatacao
+        run: npm run format:check

@@ -1,0 +1,21 @@
+{
+  "name": "dependabot-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Laboratorio de Dependabot com uma calculadora JavaScript",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test",
+    "format:check": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "decimal.js": "10.5.0"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}

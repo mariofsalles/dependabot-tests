@@ -1,0 +1,36 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "[DEPS]"
+    labels:
+      - "dependencies"
+    groups:
+      MAJOR:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "major"
+      MINOR:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+      PATCH:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "github-actions"
