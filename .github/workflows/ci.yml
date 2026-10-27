@@ -18,7 +18,7 @@ jobs:
       - name: Obter codigo
         uses: actions/checkout@v6
       - name: Configurar Node.js LTS
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "24"
           cache: npm
